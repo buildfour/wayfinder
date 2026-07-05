@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.env*
+.data
+README.md
+PLAN.md
+CLI-PLAN.md
+DEPLOY.md
+*.md
+scripts

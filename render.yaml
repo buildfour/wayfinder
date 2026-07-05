@@ -1,0 +1,33 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: wayfinder
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_TRUST_HOST
+        value: "true"
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GRADIUM_API_KEY
+        sync: false
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: CF_ACCOUNT_ID
+        sync: false
+      - key: CF_D1_DATABASE_ID
+        sync: false
+      - key: CLOUDFLARE_API_TOKEN
+        sync: false
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false

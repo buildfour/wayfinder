@@ -1,0 +1,70 @@
+ONBOARDING A NEW TEAMMATE
+=========================
+
+Purpose: Get a new hire access to tools, repos, and channels on day one.
+Owner: People Ops + Engineering lead
+Estimated time: 45-60 minutes
+
+PREREQUISITES
+-------------
+- New hire has signed offer letter and completed HR paperwork
+- You have their work email address
+- Their manager has confirmed start date and role (engineer, designer, etc.)
+
+STEP 1 — CREATE ACCOUNTS
+------------------------
+1. Create a Google Workspace account using firstname.lastname@company.com
+2. Add them to the "All Staff" Google Group
+3. Create a Slack account with the same email and invite to #general and #engineering
+4. Add them to the company 1Password vault (view-only until day two)
+
+STEP 2 — GRANT REPOSITORY ACCESS
+--------------------------------
+1. Open GitHub organization settings
+2. Invite their GitHub username to the org (ask them for their handle on day zero)
+3. Add them to the "engineering" team — this grants access to main app repos
+4. For contractors: use the "external-collaborators" team instead
+
+STEP 3 — LOCAL DEVELOPMENT SETUP
+--------------------------------
+Send them the internal README link and ask them to complete:
+
+1. Install Node.js 22 LTS and Git
+2. Clone the main application repository
+3. Copy .env.example to .env.local and request secrets from their onboarding buddy
+4. Run npm install && npm run dev
+5. Confirm localhost:3000 loads the app
+
+STEP 4 — PRODUCT & PROCESS ORIENTATION
+--------------------------------------
+Schedule these on the first day:
+
+1. 30-min welcome with manager (goals for week one)
+2. 45-min product walkthrough with a senior engineer
+3. Assign one "good first issue" ticket before lunch
+4. End-of-day check-in: blockers, questions, access gaps
+
+STEP 5 — VERIFY ACCESS CHECKLIST
+--------------------------------
+Before end of day one, confirm the new hire can:
+
+[ ] Log into email and Slack
+[ ] Access GitHub and see team repositories
+[ ] Run the app locally
+[ ] Join the daily standup calendar invite
+
+STEP 6 — CLOSE THE LOOP
+-----------------------
+1. Manager sends a "day one complete" note to People Ops
+2. Remove any temporary guest accounts created during hiring
+3. Add their photo and bio to the team page within the first week
+
+COMMON ISSUES
+-------------
+- GitHub invite pending: new hire must accept email invite before repos appear
+- Missing secrets: buddy should share via 1Password, never Slack DM
+- Wrong team on GitHub: fix team membership same day to avoid access tickets
+
+COMPLETION
+----------
+Onboarding is complete when all five verify-access items are checked and the manager confirms the hire is unblocked for week one work.

@@ -1,0 +1,9 @@
+name = "wayfinder"
+main = "."
+compatibility_date = "2024-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wayfinder"
+database_id = "311fa47b-770e-473f-b5dc-3e4773a7b5c6"
+migrations_dir = "prisma/migrations"

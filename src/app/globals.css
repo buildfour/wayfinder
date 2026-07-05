@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+:root {
+  --void: #04040a;
+  --charcoal: #0c0c18;
+  --sidebar: #0a0c14;
+  --cobalt: #1a5fd4;
+  --cobalt-bright: #2563eb;
+  --teal: #00d4b4;
+  --teal-bright: #2dd4bf;
+  --amber: #f0a030;
+  --amber-bright: #f97316;
+  --parchment: #e8e4dc;
+  --muted: #94a3b8;
+  --gold: #d4a017;
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-charcoal: var(--charcoal);
+  --color-sidebar: var(--sidebar);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-bright: var(--cobalt-bright);
+  --color-teal: var(--teal);
+  --color-teal-bright: var(--teal-bright);
+  --color-amber: var(--amber);
+  --color-amber-bright: var(--amber-bright);
+  --color-parchment: var(--parchment);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --font-condensed: var(--font-bebas);
+  --font-humanist: var(--font-dm-sans);
+  --font-serif: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--void);
+  color: var(--parchment);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 212, 180, 0.3);
+}
+
+.glow-teal {
+  box-shadow: 0 0 20px rgba(0, 212, 180, 0.35), 0 0 60px rgba(0, 212, 180, 0.1);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px rgba(240, 160, 48, 0.4), 0 0 60px rgba(240, 160, 48, 0.15);
+}
+
+.glow-cobalt {
+  box-shadow: 0 0 20px rgba(26, 95, 212, 0.4), 0 0 60px rgba(26, 95, 212, 0.15);
+}
+
+.text-glow-teal {
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 24px rgba(240, 160, 48, 0.5);
+}
+
+.hairline {
+  border-color: rgba(232, 228, 220, 0.12);
+}
+
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(6) infinite;
+}
+
+.film-grain-heavy::after {
+  opacity: 0.09;
+}
+
+.film-grain-medium::after {
+  opacity: 0.06;
+}
+
+.film-grain-light::after {
+  opacity: 0.025;
+}
+
+.star-grid {
+  background-image:
+    linear-gradient(rgba(26, 95, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 95, 212, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.film-perforations {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.03) 6px,
+    rgba(255, 255, 255, 0.03) 14px
+  );
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-1%, 1%); }
+  50% { transform: translate(1%, -1%); }
+  75% { transform: translate(-1%, -1%); }
+}
+
+@keyframes orbit-slow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes scan-sweep {
+  0% { top: -10%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+@keyframes finale-flash {
+  0% { opacity: 0; transform: scale(0.8); }
+  30% { opacity: 0.6; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+
+.animate-orbit-slow {
+  animation: orbit-slow 120s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 90s linear infinite;
+}
+
+.animate-scan-sweep {
+  animation: scan-sweep 3s ease-in-out infinite;
+}
+
+.animate-finale-flash {
+  animation: finale-flash 1.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-grain::after,
+  .animate-pulse-glow,
+  .animate-orbit-slow,
+  .animate-orbit-reverse,
+  .animate-scan-sweep,
+  .cursor-blink {
+    animation: none !important;
+  }
+}
